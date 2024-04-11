@@ -1,6 +1,6 @@
 # dfgit
 
-dfgit is a small program that allows for tracking changes in code on the [DiamondFire Minecraft server](https://mcdiamondfire.com) using git.
+dfgit is a small blazingly fast program that allows for tracking changes in code on the [DiamondFire Minecraft server](https://mcdiamondfire.com) using git.
 
 
 
