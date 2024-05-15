@@ -1,4 +1,4 @@
-use std::{fs::{self, remove_dir_all, File}, io::{self, Write}, path::Path, process::Command};
+use std::{ffi::OsStr, fs::{self, remove_dir_all, File}, io::{self, Write}, path::Path, process::Command};
 use clap::builder::Str;
 use serde::{Serialize, Deserialize};
 
@@ -82,6 +82,10 @@ impl Repo {
         let paths = fs::read_dir(&tdir).unwrap();
         for path in paths {
             let ppath = path.unwrap().path();
+            println!("{}", ppath.display());
+            if (ppath.file_name().unwrap() == ".git") {
+                continue;
+            }
             if ppath.extension().unwrap() == "df" {
                 let spath = ppath.to_str().unwrap();
                 fs::remove_file(spath).unwrap();
