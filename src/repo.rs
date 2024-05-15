@@ -66,6 +66,9 @@ impl Repo {
         let paths = fs::read_dir(self.get_template_directory()).unwrap();
         for path in paths {
             let ppath = path.unwrap().path();
+            if (ppath.file_name().unwrap() == ".git") {
+                continue;
+            }
             if ppath.extension().unwrap() == "df" {
                 let spath = ppath.to_str().unwrap();
                 let str = fs::read_to_string(spath).unwrap();
