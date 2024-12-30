@@ -21,6 +21,7 @@ impl CCAPI {
     }
 
     pub fn wait_for_auth(&mut self) {
+        self.client.send_message(&Message::text("scopes read_plot write_code"));
         loop {
             let message = self.client.recv_message().unwrap(); // Recieve message
             match message {
